@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇博客文章, Hexo">
+    <meta name="keywords" content="搭建个人博客, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>我的第一篇博客文章 | Hexo</title>
+    <title>搭建个人博客 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -303,12 +303,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的第一篇博客文章</h1>
+                    <h1 class="description center-align post-title">搭建个人博客</h1>
                 </div>
             </div>
         </div>
@@ -454,11 +454,63 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-<hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.leopard.cn" target="_blank" rel="noopener">www.leopard.cn</a></p>
+                <blockquote>
+<p><strong>本文在Windows下进行搭建个人博客。</strong><br><strong>基于hexo博客框架</strong></p>
+</blockquote>
+<ul>
+<li>部署环境</li>
+<li>初始化个人博客</li>
+<li>写博客</li>
+<li>把博客部署到云端</li>
+<li>如何给博客换主题</li>
+</ul>
+<h2 id="一、部署环境"><a href="#一、部署环境" class="headerlink" title="一、部署环境"></a>一、部署环境</h2><p> 1）、下载node.js：<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/</a>，下载长期支持版</p>
+<p> 2）、正常安装，不再多讲</p>
+<p> 3）、打开cmd（记得在管理员状态下运行），输入node -v和rpm -v查看是否安装成功。rpm是包管理器。</p>
+<p> 4）、由于国内的镜像源很慢，所以安装淘宝的源</p>
+<pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></pre><p>查看是否安装好：<code>cnpm -v</code></p>
+<p>5）、-g表示全局，所以全局安装hexo博客：</p>
+<pre><code>cnpm install -g hexo-cli</code></pre><p>6）、验证一下是否安装成功：<code>hexo -v</code>，此时hexo安装完成。</p>
+<p>7）、接下来开始使用hexo搭建个人博客<br>可以先查看自己当前的所在位置，当然了Windows就算了，因为前面就是路径。<br>由于我都C盘还剩20多个G，所以我觉得将博客放在D盘。<br>输入d:，到D盘下，mkdir blog来新建一个名为blog的文件夹。当然也可以直接在D盘下新建一个。<br>如果在之后出现了什么问题，直接把blog这个目录删除即可。</p>
+<h2 id="二、初始化博客"><a href="#二、初始化博客" class="headerlink" title="二、初始化博客"></a>二、初始化博客</h2><p>1）、进入blog 文件夹下， 可以通过<code>pwd</code>来查看路径。<br>初始化：<code>hexo init</code> (linux下记得在前面加上sudo)，查看目录下。</p>
+<p>2）、启动博客：<code>hexo s</code><br>浏览器中输入<code>http://localhost:4000</code>，得到如下hexo页面。</p>
+<h2 id="三、写博客"><a href="#三、写博客" class="headerlink" title="三、写博客"></a>三、写博客</h2><p>1）、此时CTRL+C，终止。接着进入source/_posts下（cd source/_posts）然后新建一个md文件：<code>hexo n</code> <code>“我的第一篇博客文章”</code>。</p>
+<blockquote>
+<p>如果ls显示后，中文出现乱码，不要慌，我已经解决了。如下：<br>   在此先声明一点，网上有的让直接在注册表里面修改，但是打开注册表编辑器发现里面根本就没有所需要的那个文件或者项。有的就让在cmd里面去更改默认值或者属性。这些都不能解决此处问题。所以使用下面这个方法吧：在桌面新建一个cmd.reg（名称无所谓，自定义一个就行），然后将下面这串代码放进去：</p>
+</blockquote>
+<pre><code>Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenCmdHere]
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenCmdHere\command]
+@=&quot;Open Cmd here&quot;
+&quot;Extended&quot;=&quot;&quot;
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenCmdHere\command]
+@=&quot;cmd.exe -noexit -command Set-Location -literalPath &apos;%V&apos;&quot;
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor]
+&quot;AutoRun&quot;=&quot;doskey ls=ls --show-control-chars --color&amp;&amp;set LANG=zh_CN.UTF-8&quot;</code></pre><blockquote>
+<p>保存后，双击这个文件，这样就将上面这些写如到注册表中了。可以看到最后一条语句就算修改为中文以及utf-8编码。</p>
+</blockquote>
+<p>2）、开始写博客。<br>使用<code>vim “我的第一篇博客文章.md”</code>，使用i开始编辑。</p>
+<p>退出：esc–&gt;:–&gt;wq–&gt;回车。其中wq表示保存并退出，q!表示强制退出，不保存。其他的命令自行百度。<br>   退出以后，回退到blog目录下：<code>cd ../..</code><br>   清理一下：<code>hexo clean</code><br>   再重新生成Generate static files：<code>hexo generate</code><br>   最后开启hexo：<code>hexo s</code><br>现在来看看自己的博客。</p>
+<p>非常好。下面开始将我们自己的博客部署到GitHub上公开使用。</p>
+<h2 id="四、把博客部署到云端"><a href="#四、把博客部署到云端" class="headerlink" title="四、把博客部署到云端"></a>四、把博客部署到云端</h2><p>1）、再你的GitHub里面新建一个仓库，仓库名称必须要是你的用户名加.github.io</p>
+<p><img src="/images/%E5%9B%BE%E7%89%871.png" alt=""></p>
+<p>此时你的仓库已经弄好，但是它是空的。</p>
+<p>2）、安装git的部署插件：</p>
+<pre><code>cnpm install –-save hexo-deployer-git</code></pre><p>安装完成后，要编辑blog文件夹下的_config.yml，repo为你的仓库地址：</p>
+<p><img src="/images/%E5%9B%BE%E7%89%872.png" alt=""></p>
+<p><img src="/images/%E5%9B%BE%E7%89%873.png" alt=""></p>
+<p>3）、部署到远端：<code>hexo d</code> (其中d表示deploy)<br> 输入GitHub账号和密码，此时就将电脑上的博客部署到GitHub上了</p>
+<p>4）、此时看看你的GitHub仓库，现在在浏览器中输入地址：<a href="https://aileopard.github.io/" target="_blank" rel="noopener">https://aileopard.github.io/</a></p>
+<h2 id="五、如何给博客换主题"><a href="#五、如何给博客换主题" class="headerlink" title="五、如何给博客换主题"></a>五、如何给博客换主题</h2><p>现在发现博客不美观，那么如何更换博客主题呢？<br>1）、首先在GitHub上发现一个很好的主题：<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a><br>在终端的blog下，将这个主题克隆到blog文件夹下的themes/yilia中：</p>
+<pre><code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code></pre><p>2）、如何应用下载好的主题呢？<br>编辑_config.yml，修改主题</p>
+<p><img src="/images/%E5%9B%BE%E7%89%874.png" alt=""></p>
+<p>然后保存，清理：<code>hexo clean</code><br>                  生成：<code>hexo g</code><br>                  启动：<code>hexo s</code><br>这时一键部署到GitHub上，<code>hexo d</code><br>刷新一会，就会看到你的个人博客主题变了。</p>
+<blockquote>
+<p>最后，可以根据自己的喜好去GitHub上找主题，这里要记得将其克隆到你的theme文件夹下，如果直接复制可能会出错。</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -484,7 +536,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/02/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">http://yoursite.com/2020/02/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</a>
+                    <a href="http://yoursite.com/2020/02/29/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">http://yoursite.com/2020/02/29/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -685,9 +737,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/02/29/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
                     <div class="card-image">
@@ -715,9 +768,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -726,6 +779,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -736,19 +790,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/29/hello-world/">
+                <a href="/2020/02/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="我的第一篇博客文章">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">我的第一篇博客文章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            第一章内容
+
+第二章内容
+
+参考文献www.leopard.cn
+
                         
                     </div>
                     <div class="publish-info">
